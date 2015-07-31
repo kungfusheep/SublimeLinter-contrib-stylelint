@@ -9,10 +9,10 @@ SublimeLinter 3 must be installed in order to use this plugin. If SublimeLinter 
 ### Linter installation
 Before using this plugin, you must ensure that `stylelint` is installed on your system. To install `stylelint`, do the following:
 
-1. Install `postcss` and `stylelint` globally by typing the following in a terminal:
+1. Install `postcss` and `stylelint` by typing the following in a terminal:
    
    ```
-   npm install -g postcss stylelint
+   npm install postcss stylelint
    ```
 
 

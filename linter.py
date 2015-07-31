@@ -17,8 +17,8 @@ class Stylelint(Linter):
 
     """Provides an interface to stylelint."""
 
-    syntax = 'css'
-    cmd = (os.path.dirname(os.path.realpath(__file__)) + '\\sh', '@')
+    syntax = ('css', 'css3')
+    cmd = ('node', os.path.dirname(os.path.realpath(__file__)) + '/stylelint_wrapper.js', '@')
     error_stream = util.STREAM_BOTH
     config_file = ('--config', '.stylelintrc')
     tempfile_suffix = 'css'
