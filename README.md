@@ -1,7 +1,7 @@
 SublimeLinter-contrib-stylelint
 ================================
 
-This linter plugin for [SublimeLinter][docs] provides an interface to [stylelint][stylelint-github]. It will be used with files that have the “css” syntax.
+This linter plugin for [SublimeLinter][docs] provides an interface to [stylelint][stylelint-github]. It will be used with files that have the “css” and "css3" syntax.
 
 ## Installation
 SublimeLinter 3 must be installed in order to use this plugin. If SublimeLinter 3 is not installed, please follow the instructions [here][installation].
@@ -9,6 +9,7 @@ SublimeLinter 3 must be installed in order to use this plugin. If SublimeLinter 
 ### Linter installation
 Before using this plugin, you must ensure that `stylelint` is installed on your system. To install `stylelint`, do the following:
 
+1. Install [node.js][nodejs-homepage] 
 1. Install `postcss` and `stylelint` by typing the following in a terminal:
    
    ```
@@ -90,3 +91,4 @@ Thank you for helping out!
 [linter-settings]: http://sublimelinter.readthedocs.org/en/latest/linter_settings.html
 [inline-settings]: http://sublimelinter.readthedocs.org/en/latest/settings.html#inline-settings
 [stylelint-github]: https://github.com/stylelint/stylelint
+[nodejs-homepage]: http://nodejs.org
