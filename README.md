@@ -35,6 +35,7 @@ To install via Package Control, do the following:
 For general information on how SublimeLinter works with settings, please see [Settings][settings]. For information on generic linter settings, please see [Linter Settings][linter-settings].
 
 Configuration of stylelint is available via a `.stylelintrc` file in your source path. Here's an example, but you can see the full list of accepted parameters over at the [stylelint github page][stylelint-github].
+
 ```
 {
     "rules": {
