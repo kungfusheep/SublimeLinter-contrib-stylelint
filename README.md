@@ -2,7 +2,7 @@ SublimeLinter-contrib-stylelint
 ================================
 
 
-   **EARLY ADOPTERS - because of bug [#1](https://github.com/kungfusheep/SublimeLinter-contrib-stylelint/issues/1), you may need to uninstall the plugin, restart and then re-install via package control to get the linter working (version 1.0.1). Sorry for the inconvenience. **
+###EARLY ADOPTERS - because of bug [#1](https://github.com/kungfusheep/SublimeLinter-contrib-stylelint/issues/1), you may need to uninstall the plugin, restart and then re-install via package control to get the linter working (version 1.0.1). Sorry for the inconvenience.
 
 
 This linter plugin for [SublimeLinter][docs] provides an interface to [stylelint][stylelint-github]. It will be used with files that have the “css” and "css3" syntax.
