@@ -1,8 +1,0 @@
-{
-    "version": "1.0.1",
-    "dependencies": [],
-    "url": "https://github.com/kungfusheep/SublimeLinter-contrib-stylelint",
-    "sublime_text": ">=3000",
-    "description": "This linter plugin for SublimeLinter provides an interface to stylelint.",
-    "platforms": ["*"]
-}
