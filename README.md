@@ -1,10 +1,6 @@
 SublimeLinter-contrib-stylelint
 ================================
 
-
-###EARLY ADOPTERS - because of bug [#1](https://github.com/kungfusheep/SublimeLinter-contrib-stylelint/issues/1), you may need to uninstall the plugin, restart and then re-install via package control to get the linter working (version 1.0.1). Sorry for the inconvenience.
-
-
 This linter plugin for [SublimeLinter][docs] provides an interface to [stylelint][stylelint-github]. It will be used with files that have the “css” and "css3" syntax.
 
 ## Installation
@@ -14,7 +10,7 @@ SublimeLinter 3 must be installed in order to use this plugin. If SublimeLinter 
 Before using this plugin, you must ensure that `stylelint` is installed on your system. To install `stylelint`, do the following:
 
 1. Install [node.js][nodejs-homepage] 
-1. Install `postcss` and `stylelint` by typing the following in a terminal:
+1. In your project directory, install `postcss` and `stylelint` by typing the following in a terminal:
    
    ```
    npm install postcss stylelint
@@ -22,7 +18,7 @@ Before using this plugin, you must ensure that `stylelint` is installed on your 
 
 
 ### Linter configuration
-In order for `stylelint` to be executed by SublimeLinter, you must ensure that its path is available to SublimeLinter. Before going any further, please read and follow the steps in [“Finding a linter executable”](http://sublimelinter.readthedocs.org/en/latest/troubleshooting.html#finding-a-linter-executable) through “Validating your PATH” in the documentation.
+In order for `stylelint` to be executed by SublimeLinter, you must ensure that nodejs is available to SublimeLinter. Before going any further, please read and follow the steps in [“Finding a linter executable”](http://sublimelinter.readthedocs.org/en/latest/troubleshooting.html#finding-a-linter-executable) through “Validating your PATH” in the documentation.
 
 Once you have installed and configured `stylelint`, you can proceed to install the SublimeLinter-contrib-stylelint plugin if it is not yet installed.
 
@@ -38,7 +34,7 @@ To install via Package Control, do the following:
 ## Settings
 For general information on how SublimeLinter works with settings, please see [Settings][settings]. For information on generic linter settings, please see [Linter Settings][linter-settings].
 
-Configuration of stylelint is available via a `.stylelintrc` file in your source path. Here's an example, but you can see the full list of accepted parameters over at the [stylelint github page][stylelint-github].
+Configuration of stylelint is available via a `.stylelintrc` file in your source path. The location of this file is significant, it will be treated as a place to start looking for your local install of the postcss/stylelint node modules. Here's an example, but you can see the full list of accepted parameters over at the [stylelint github page][stylelint-github].
 
 ```
 {
@@ -67,6 +63,8 @@ Configuration of stylelint is available via a `.stylelintrc` file in your source
 }
 
 ```
+This is subject to change, as per [this issue](https://github.com/postcss/postcss/issues/477).
+
 
 
 ## Contributing

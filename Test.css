@@ -13,7 +13,7 @@
     display:block;
     transition : opacity .2s;
     color: #f90;
-    background-color: #333;
+    background-color: #333; 
     transition: background-color .3s;
 }
 

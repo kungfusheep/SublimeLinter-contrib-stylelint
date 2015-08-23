@@ -1,0 +1,15 @@
+SublimeLinter-contrib-stylelint 1.0.2
+--------------------------------------
+
+Hi!
+
+In this update, the plug-in will now attempt to load the local install 
+of postcss & stylelint from your project directory (your .stylelintrc
+location) or one of its parent directories. So it's no longer necessary 
+to have a separate install of either for the sake of this plug-in. 
+
+Any issues here - https://github.com/kungfusheep/SublimeLinter-contrib-stylelint/issues
+
+Happy linting
+
+@kungfusheep
