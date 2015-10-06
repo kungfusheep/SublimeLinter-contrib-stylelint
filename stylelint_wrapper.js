@@ -12,6 +12,10 @@ if(index > -1){
 
     /// now try to use the node_modules folder from the project folder (we're saying the project folder is where the config is...)
     var sep = prjPath.indexOf("/") > -1 ? "/" : "\\";
+
+    /// set the working directory to the config location - this is necessary because 'plugins' and 'extends' are relative.
+    process.chdir(prjPath.slice(0, prjPath.lastIndexOf(sep)));
+
     while(prjPath.indexOf(sep) > -1){
         prjPath = prjPath.slice(0, prjPath.lastIndexOf(sep));
         require.main.paths.splice(0, 0, prjPath + "/node_modules");

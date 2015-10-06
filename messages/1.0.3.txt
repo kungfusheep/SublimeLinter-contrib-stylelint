@@ -1,0 +1,13 @@
+SublimeLinter-contrib-stylelint 1.0.3
+--------------------------------------
+
+Hi!
+
+This is a small update to support the upcoming changes to stylelint outlined in this pull
+request - https://github.com/stylelint/stylelint/pull/380
+
+Any plugin issues here - https://github.com/kungfusheep/SublimeLinter-contrib-stylelint/issues
+
+Happy linting
+
+@kungfusheep
