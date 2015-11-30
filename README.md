@@ -63,8 +63,6 @@ Configuration of stylelint is available via a `.stylelintrc` file in your source
 }
 
 ```
-This is subject to change, as per [this issue](https://github.com/postcss/postcss/issues/477).
-
 
 
 ## Contributing
