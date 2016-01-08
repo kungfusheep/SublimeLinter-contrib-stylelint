@@ -2,11 +2,9 @@
 
 var defaultFormatter = require('./formatter');
 
-module.exports = function(opts) {
-  var options = opts || {};
-
+module.exports = function () {
+  
   var formatter = defaultFormatter();
-
   return function(css, result) {
     
     var report = formatter({

@@ -1,0 +1,14 @@
+SublimeLinter-contrib-stylelint 1.0.4
+--------------------------------------
+
+Hi!
+
+The plugin has been updated to use the stylelint CLI where available - old versions of stylelint are still supported!
+Using the CLI should give a more predictable experience and more accurate line numbers than previously available. Sass/scss synax support has also been added (thanks fengnana).
+
+Sorry it's taken a while to get around to these updates, I've been mega busy. 
+Any plugin issues here - https://github.com/kungfusheep/SublimeLinter-contrib-stylelint/issues
+
+Happy linting
+
+@kungfusheep
