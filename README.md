@@ -34,33 +34,7 @@ To install via Package Control, do the following:
 ## Settings
 For general information on how SublimeLinter works with settings, please see [Settings][settings]. For information on generic linter settings, please see [Linter Settings][linter-settings].
 
-Configuration of stylelint is available via a `.stylelintrc` file in your source path. The location of this file is significant, it will be treated as a place to start looking for your local install of the postcss/stylelint node modules. Here's an example, but you can see the full list of accepted parameters over at the [stylelint github page][stylelint-github].
-
-```
-{
-    "rules": {
-        "block-no-empty": 2,
-        "color-no-invalid-hex": 2,
-        "declaration-colon-space-after": [2, "always"],
-        "declaration-colon-space-before": [2, "never"],
-        "function-comma-space-after": [2, "always"],
-        "function-url-quotes": [2, "double"],
-        "media-feature-colon-space-after": [2, "always"],
-        "media-feature-colon-space-before": [2, "never"],
-        "media-feature-name-no-vendor-prefix": 2,
-        "number-leading-zero": [2, "never"],
-        "number-no-trailing-zeros": 2,
-        "property-no-vendor-prefix": 2,
-        "rule-no-duplicate-properties": 2,
-        "rule-trailing-semicolon": [2, "always"],
-        "selector-list-comma-newline-after": [2, "always-multi-line"],
-        "selector-no-id": 2,
-        "string-quotes": [2, "double"],
-        "value-no-vendor-prefix": 2
-    }
-}
-
-```
+Configuration of stylelint is available via a `.stylelintrc` file in your source path. The location of this file is significant, it will be treated as a place to start looking for your local install of the postcss/stylelint node modules. You can see the full list of accepted parameters over at the [stylelint github page][stylelint-github].
 
 
 ## Contributing
