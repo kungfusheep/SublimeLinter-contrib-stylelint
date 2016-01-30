@@ -29,6 +29,16 @@ if (index > -1) {
 
         require.main.paths.splice(0, 0, prjPath + "/node_modules"); 
     }
+
+    /// if we cannot locate a local stylelint CLI, try to look for it on npm global
+    if(!cliLocation) {
+        var npmPath = require("child_process").execSync("npm root -g").toString()
+            .trim().replace("/node_modules", "");
+
+        if(fs.existsSync(npmPath + CLI_JS_LOCATION)) {
+            cliLocation = npmPath + CLI_JS_LOCATION;    
+        }
+    }
 }
 
 /// we want to support the latest stylelint and use the CLI, but also want to support the pre-CLI version. 
