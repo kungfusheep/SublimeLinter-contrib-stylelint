@@ -2,9 +2,10 @@ var fs = require("fs");
 
 /// we're keeping this project-specific. 
 var CLI_JS_LOCATION = "/node_modules/stylelint/dist/cli.js";
+var PACKAGE_JSON = "/node_modules/stylelint/package.json";
 
 /// get the config location, if it's been provided.
-var configPath, prjPath, cliLocation;
+var configPath, prjPath, cliLocation, useOld = false;
 var index = process.argv.indexOf("--config");
 if (index > -1) {
 
@@ -23,15 +24,27 @@ if (index > -1) {
 
         /// look for the stylelint CLI on the way whilst we're here. we'll either need this or the require paths
         if(!cliLocation && fs.existsSync(prjPath + CLI_JS_LOCATION)){
-            cliLocation = prjPath + CLI_JS_LOCATION;
-            break;
+            
+            /// check the version number. old versions of stylelint had the cli.js file but it didn't work. 
+            var json = JSON.parse(fs.readFileSync(prjPath + PACKAGE_JSON));
+            var ver = Number(json.version.split(".")[0]);
+            if(ver >= 2){
+
+                cliLocation = prjPath + CLI_JS_LOCATION;
+                break;
+            }
+            else {
+                /// we've found a stylelint instance but it's an older version, 
+                ///  so make sure this is the one that is used and not the global instance. 
+                useOld = true;
+            }
         }
 
         require.main.paths.splice(0, 0, prjPath + "/node_modules"); 
     }
 
     /// if we cannot locate a local stylelint CLI, try to look for it on npm global
-    if(!cliLocation) {
+    if(!cliLocation && !useOld) {
         var npmPath = require("child_process").execSync("npm root -g").toString()
             .trim().replace("/node_modules", "");
 
