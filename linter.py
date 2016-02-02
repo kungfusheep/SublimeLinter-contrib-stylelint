@@ -19,7 +19,7 @@ class Stylelint(Linter):
     syntax = ('css', 'css3', 'sass', 'scss', 'postcss')
     cmd = ('node', os.path.dirname(os.path.realpath(__file__)) + '/stylelint_wrapper.js', '@')
     error_stream = util.STREAM_BOTH
-    config_file = ('--config', '.stylelintrc')
+    config_file = ('--config', '.stylelintrc', '~')
     tempfile_suffix = 'css'
     regex = (
         r'^(?P<line>[0-9]+)\:(?P<col>[0-9]+)(?P<message>.+)'
