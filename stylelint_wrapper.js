@@ -76,7 +76,7 @@ else {
     var css = fs.readFileSync(fileName, "utf8");
 
     /// load the config json
-    var config = prjPath ? JSON.parse(fs.readFileSync(configPath)) : {};
+    var config = configPath ? JSON.parse(fs.readFileSync(configPath)) : {};
 
     /// start the linting process.
     postcss([
