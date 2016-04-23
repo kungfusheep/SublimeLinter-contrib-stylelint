@@ -22,5 +22,5 @@ class Stylelint(Linter):
     config_file = ('--config', '.stylelintrc', '~')
     tempfile_suffix = 'css'
     regex = (
-        r'^(?P<line>[0-9]+)\:(?P<col>[0-9]+)(?P<message>.+)'
+        r'^\s*(?P<line>[0-9]+)\:(?P<col>[0-9]+)\s*(?P<message>.+)'
     )
