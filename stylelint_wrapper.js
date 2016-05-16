@@ -46,10 +46,11 @@ if (index > -1) {
     /// if we cannot locate a local stylelint CLI, try to look for it on npm global
     if(!cliLocation && !useOld) {
         var npmPath = require("child_process").execSync("npm root -g").toString()
-            .trim().replace("/node_modules", "");
+            .trim();
+        var cliPath = npmPath + CLI_JS_LOCATION.replace("/node_modules", "");
 
-        if(fs.existsSync(npmPath + CLI_JS_LOCATION)) {
-            cliLocation = npmPath + CLI_JS_LOCATION;    
+        if(fs.existsSync(cliPath)) {
+            cliLocation = cliPath;
         }
     }
 }
