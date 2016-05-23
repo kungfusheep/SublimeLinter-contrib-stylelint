@@ -59,9 +59,11 @@ if (index > -1) {
 /// using the CLI gets around a bunch of things, like needing the "postcss-scss" module. plus a lot of work went into it!
 if(cliLocation){
     /// use the CLI, we found it earlier on.
-
+    var file = process.argv[2];
+    var args = process.argv.concat([]);
+    args.splice(0, 2);
     var child_process = require("child_process");
-    var lint = child_process.spawnSync("node", [cliLocation, process.argv[2] ]);
+    var lint = child_process.spawnSync("node", [cliLocation, file].concat(args));
     /// re-route the stdout to ours
     console.log(String(lint.stdout) + String(lint.stderr));
 }
