@@ -1,6 +1,36 @@
 var fs = require("fs");
 
-/// we're keeping this project-specific. 
+/**
+ * get syntax from filename ext
+ * @param  {Array} argv process.argv
+ * @return {String}      less/scss/sugarss/''
+ */
+var getSyntax = function(argv) {
+    var syntax = '', fileExt, syntaxWhiteList;
+
+    //User settings with higher priority
+    if (~ argv.indexOf('-s') || ~ argv.indexOf('--syntax')) {
+        return syntax;
+    }
+
+    fileExt = ('' + argv[2]).split('.');
+    syntaxWhiteList = {
+        less: 'less',
+        sass: 'scss',
+        scss: 'scss',
+        sss: 'sugarss',
+        postcss: 'sugarss'
+    };
+
+    if (fileExt && fileExt.length > 1) {
+        fileExt = ('' + fileExt[fileExt.length - 1]).toLowerCase();
+        syntax = syntaxWhiteList[fileExt] || '';
+    }
+
+    return syntax;
+}
+
+/// we're keeping this project-specific.
 var CLI_JS_LOCATION = "/node_modules/stylelint/dist/cli.js";
 var PACKAGE_JSON = "/node_modules/stylelint/package.json";
 
@@ -18,14 +48,14 @@ if (index > -1) {
     process.chdir(prjPath.slice(0, prjPath.lastIndexOf(sep)));
 
     /// now try to use the node_modules folder from the project folder (we're saying the project folder is where the config is...)
-    /// we'll add a bunch of paths for require to check. 
+    /// we'll add a bunch of paths for require to check.
     while (prjPath.indexOf(sep) > -1) {
         prjPath = prjPath.slice(0, prjPath.lastIndexOf(sep));
 
         /// look for the stylelint CLI on the way whilst we're here. we'll either need this or the require paths
         if(!cliLocation && fs.existsSync(prjPath + CLI_JS_LOCATION)){
-            
-            /// check the version number. old versions of stylelint had the cli.js file but it didn't work. 
+
+            /// check the version number. old versions of stylelint had the cli.js file but it didn't work.
             var json = JSON.parse(fs.readFileSync(prjPath + PACKAGE_JSON));
             var ver = Number(json.version.split(".")[0]);
             if(ver >= 2){
@@ -34,13 +64,13 @@ if (index > -1) {
                 break;
             }
             else {
-                /// we've found a stylelint instance but it's an older version, 
-                ///  so make sure this is the one that is used and not the global instance. 
+                /// we've found a stylelint instance but it's an older version,
+                ///  so make sure this is the one that is used and not the global instance.
                 useOld = true;
             }
         }
 
-        require.main.paths.splice(0, 0, prjPath + "/node_modules"); 
+        require.main.paths.splice(0, 0, prjPath + "/node_modules");
     }
 
     /// if we cannot locate a local stylelint CLI, try to look for it on npm global
@@ -55,15 +85,22 @@ if (index > -1) {
     }
 }
 
-/// we want to support the latest stylelint and use the CLI, but also want to support the pre-CLI version. 
+/// we want to support the latest stylelint and use the CLI, but also want to support the pre-CLI version.
 /// using the CLI gets around a bunch of things, like needing the "postcss-scss" module. plus a lot of work went into it!
 if(cliLocation){
     /// use the CLI, we found it earlier on.
-    var file = process.argv[2];
     var args = process.argv.concat([]);
     args.splice(0, 2);
+
+    var syntax = getSyntax(process.argv);
+    if (syntax) {
+        args = [cliLocation, '--syntax', syntax].concat(args);
+    } else {
+        args = [cliLocation].concat(args);
+    }
+
     var child_process = require("child_process");
-    var lint = child_process.spawnSync("node", [cliLocation, file].concat(args));
+    var lint = child_process.spawnSync("node", args);
     /// re-route the stdout to ours
     console.log(String(lint.stdout) + String(lint.stderr));
 }
