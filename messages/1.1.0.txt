@@ -1,0 +1,11 @@
+SublimeLinter-contrib-stylelint 1.1.0
+--------------------------------------
+
+Hi!
+
+- Removed support for old versions of stylelint.
+- Removed all js wrappers in project, now it uses NodeLinter class to run.
+
+Happy linting
+
+@flops

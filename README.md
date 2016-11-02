@@ -34,7 +34,13 @@ To install via Package Control, do the following:
 ## Settings
 For general information on how SublimeLinter works with settings, please see [Settings][settings]. For information on generic linter settings, please see [Linter Settings][linter-settings].
 
-Configuration of stylelint is available via a `.stylelintrc` file in your source path. The location of this file is significant, it will be treated as a place to start looking for your local install of the postcss/stylelint node modules. You can see the full list of accepted parameters over at the [stylelint github page][stylelint-github].
+Configuration of stylelint is available in this order:
+
+* a `stylelint` property in `package.json`
+* a `.stylelintrc` file
+* a `stylelint.config.js` file exporting a JS object
+
+You can see the full list of accepted parameters over at the [stylelint github page][stylelint-github].
 
 
 ## Contributing
