@@ -20,7 +20,7 @@ from SublimeLinter.lint import NodeLinter
 class Stylelint(NodeLinter):
     """Provides an interface to stylelint."""
 
-    syntax = ('css', 'css3', 'sass', 'scss', 'postcss', 'less', 'sugarss', 'sss')
+    syntax = ('css', 'css3', 'sass', 'scss', 'postcss', 'less', 'sugarss', 'sss', 'vue')
     npm_name = 'stylelint'
     cmd = ('stylelint', '--formatter', 'json', '--stdin', '--stdin-filename', '@')
     version_args = '--version'
